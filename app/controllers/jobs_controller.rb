@@ -21,19 +21,26 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
   end
 
   def edit
-    @job = Job.find(params[:id])
   end
 
   def update
-    # implement on your own!
+    @job.update(job_params)
+    if @job.save
+      flash[:success] = "#{@job.title} updated!"
+      redirect_to company_job_path(@company, @job)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    # implement on your own!
+    @job.destroy
+
+    flash[:success] = "#{@job.title} was successfully deleted!"
+    redirect_to company_jobs_path(@company)
   end
 
   private
