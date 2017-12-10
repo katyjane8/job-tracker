@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show, :destroy, :edit, :update]
+
   def index
     @companies = Company.all
   end
@@ -45,10 +47,13 @@ class CompaniesController < ApplicationController
     redirect_to companies_path
   end
 
-
   private
 
   def company_params
     params.require(:company).permit(:name, :city)
+  end
+
+  def set_company
+    @company = Company.find(params[:id])
   end
 end
