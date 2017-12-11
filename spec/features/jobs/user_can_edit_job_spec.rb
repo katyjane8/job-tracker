@@ -3,8 +3,9 @@ require 'rails_helper'
 describe "User updates an exisiting job" do
   scenario "a user can update job" do
     company = Company.create!(name: "Etsy")
+    category = Category.create!(title: "Sportsing")
     job = Job.create!(title: "QA", description: "testing", level_of_interest: "67",
-    city: "San Diego", company: company)
+    city: "San Diego", company: company, category: category)
 
     visit edit_company_job_path(company, job)
 
