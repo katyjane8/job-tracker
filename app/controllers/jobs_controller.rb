@@ -7,10 +7,12 @@ class JobsController < ApplicationController
   end
 
   def new
+    @catergory = Catergory.all
     @job = Job.new()
   end
 
   def create
+    @category = Category.all
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
@@ -46,7 +48,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :catergory_id)
   end
 
   def set_job
