@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>All Categories</title>
+  </head>
+  <body>
+  <h3>All Categories</h3>
+  <% @categories.each do |category| %>
+    <p> <%= category.title %> </p>
+    <p><%= link_to "Edit", edit_category_paty(category) %>
+    <%= link_to "Delete", category_path(category)%></p>
+    <% end %>
+  </body>
+</html>
