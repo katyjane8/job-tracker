@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_categories, only: [:show, :destroy, :edit, :update]
+  before_action :set_category, only: [:show, :destroy, :edit, :update]
 
   def index
     @categories = Category.all
@@ -10,6 +10,13 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:success] = "#{@category.title} added!"
+      redirect_to category_path(@category)
+    else
+      render :new
+    end
   end
 
   def show
@@ -19,14 +26,30 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @category.update(category_params)
+    if @category.save
+      flash[:success] = "#{@category.title} updated!"
+      redirect_to category_path(@category)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @category.destroy
+
+    flash[:success] = "#{@category.title} was successfully deleted!"
+    redirect_to categories_path
   end
 
   private
 
-  def set_categories
-  end 
+    def category_params
+      params.require(:category).permit(:title)
+    end
+
+    def set_category
+      @category = Category.find(params[:id])
+    end
 
 end
