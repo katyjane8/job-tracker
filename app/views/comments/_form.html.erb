@@ -1,0 +1,9 @@
+<%= form_for [@comment, @job] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :notes %>
+<%= f.text_area :notes %>
+
+<%= f.submit %>
+<% end %>
