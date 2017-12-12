@@ -1,4 +1,5 @@
 class Contact < ApplicationRecord
-  belongs_to :company 
+  validates :name, :position, :email, presence: true
+  belongs_to :company
 
 end
