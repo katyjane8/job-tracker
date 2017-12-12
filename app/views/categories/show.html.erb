@@ -1,1 +1,12 @@
 <h3>Category Title: <%= @category.title %> </h3>
+  <p><%= link_to "Delete Category", category_path(@category), method: "delete" %></p>
+  <p><%= link_to "Edit Category", edit_category_path(@category) %></p>
+  <br>
+
+  <% @category.jobs.each do |job| %>
+  <h2>Jobs within this category:</h2>
+  <h1><p><%= link_to "#{job.title}", company_job_path(job.company_id, job.id) %></p></h1>
+
+<% end %>
+
+<%= link_to "All Categories", categories_path %>
