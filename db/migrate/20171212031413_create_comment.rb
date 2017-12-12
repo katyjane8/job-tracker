@@ -4,7 +4,7 @@ class CreateComment < ActiveRecord::Migration[5.1]
       t.text :content
       t.references :job, index: true, foreign_key: true
 
-      t.timestamp
+      t.timestamps null: false
     end
   end
 end
