@@ -1,18 +1,17 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :set_company
+  before_action :set_company, except: [:show]
+  before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
     @jobs = @company.jobs
   end
 
   def new
-    @category = Category.all
     @job = Job.new()
   end
 
   def create
-    @category = Category.all
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
@@ -23,6 +22,8 @@ class JobsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comment.job_id = @job.id
   end
 
   def edit
@@ -57,5 +58,9 @@ class JobsController < ApplicationController
 
   def set_company
     @company = Company.find(params[:company_id])
+  end
+
+  def set_category
+    @category = Category.all
   end
 end
