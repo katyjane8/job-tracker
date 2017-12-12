@@ -26,7 +26,6 @@ h3 {
 }
 .company-container {
   font-weight: bold;
-  font-size: 24px;
   display: inline-block;
   padding: 40px;
 }
@@ -36,7 +35,7 @@ h3 {
 }
 .container p {
   font-weight: lighter;
-  font-size: 18px;
+  font-size: 12px;
 }
 a {
   text-decoration: none;
