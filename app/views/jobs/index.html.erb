@@ -5,13 +5,15 @@
     <title>All Jobs</title>
   </head>
   <body>
-  <h3>All Jobs for <strong><%= @company.name %></strong></h3>
+  <h3>All Jobs for <%= @company.name %></h3>
     <% @jobs.each do |job| %>
     <ul><%= link_to job.title, company_job_path(@company, job) %>
       at
       <%= job.company.name %></ul>
 
     <% end %>
-
+    <h3>All Contacts for <%= @company.name %>: </h3>
+    <%= render partial: 'contacts/form' %>
+    <%= render partial: 'jobs/contact', collection: @company.contacts %>
   </body>
 </html>

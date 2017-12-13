@@ -1,14 +1,20 @@
-<%= form_for [@contact, @company] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<%= form_for [@company, @contacts] do |f| %>
+  <div class="form-field">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder:"your name"%>
+  </div>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-field">
+    <%= f.label :position %>
+    <%= f.text_field :position, placeholder:"enter job title"%>
+  </div>
 
+  <div class="form-field">
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder:"enter email"%>
+  </div>
 
-
-  <%= f.submit %>
+  <div class="form-field">
+    <%= f.submit %>
+  </div>
 <% end %>
