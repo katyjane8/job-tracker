@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
   def show
-  end 
+    @jobs = Job.all
+    @company = Company.all
+  end
 
 end
