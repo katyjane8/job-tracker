@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root to: 'dashboards#show'
   resources :dashboards, only: [:show]
 
+  get '/jobs', to: "jobs#query" , as: 'query'
+
   resources :categories
   resources :companies do
     resources :jobs

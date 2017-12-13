@@ -6,6 +6,19 @@
   </head>
     <body>
       <h3>Welcome to Job Tracker!</h3>
-      
+      <h2>Number of Jobs per Interest</h2>
+      <% @jobs.count_of_jobs_by_interest.each do |interest,count| %>
+      <li>Level of Interest: <%= interest %> (<%= count %> job/s)</li>
+      <% end %>
+
+      <h2>Top Three Companies Ranked by Average Level of Interest</h2>
+      <% @company.top_three_companies.each do |company| %></p>
+      <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
+      <% end %>
+
+      <h2>Number of Jobs per Location</h2>
+      <% @jobs.count_by_city.each do |city,count| %>
+      <li><%= link_to "#{city}", "/jobs?location=#{city}" %> (<%= count %> job/s)</li>
+      <% end %>
     </body>
 </html>
