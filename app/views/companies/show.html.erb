@@ -8,6 +8,7 @@
       <h3> All Jobs for <%= @company.name %></h3>
         <% @company.jobs.each do |job| %>
         <ul><%= job.title %></ul>
+        
         <% end %>
     </body>
 </html>

@@ -10,6 +10,7 @@
         <li><%= link_to "Filter by Interest", "http://localhost:3000/jobs?sort=interest" %></li>
         <li><%= link_to "Filter by Location", "http://localhost:3000/jobs?sort=location" %></li>
         <li> <%= link_to "All Companies", companies_path %> </li>
+        <li> <%= link_to "All Categories", categories_path %> </li>
       </ul>
       <h3>Welcome to Job Tracker!</h3>
   <div class="parentWrapper">
@@ -30,6 +31,7 @@
     </section>
     <section class="wrapperTwo">
       <h2>Number of Jobs per Location</h2>
+      <p>**click on a city to see jobs for that city**</p>
       <table>
         <tr>
           <th>Location</th>
