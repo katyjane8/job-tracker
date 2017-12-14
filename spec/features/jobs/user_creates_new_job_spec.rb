@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "User creates a new job" do
   scenario "a user can create a new job" do
-    Category.create!(title: "Sportsing")
-    company = Company.create!(name: "ESPN")
+    category = create(:category)
+    company = create(:company)
 
     visit new_company_job_path(company)
 

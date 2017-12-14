@@ -6,15 +6,16 @@
   </head>
   <body>
   <h3>All Categories</h3>
-  <p><%= link_to "Add Category", new_category_path(@categories) %></p>
+  <p><%= link_to "Add Category", new_category_path(@categories), class: "button" %></p>
     <ul class="container">
       <% @categories.each do |category| %>
       <ul class=category_<%= category.id %>
         <p><%= link_to "#{category.title}", category_path(category) %> </p>
-        <p><%= link_to "Edit", edit_category_path(category) %>
-          <%= link_to "Delete", category_path(category), method: "delete" %></p>
+        <p><%= link_to "Edit", edit_category_path(category), class: "button"%>
+          <%= link_to "Delete", category_path(category), method: "delete", class: "button" %></p>
         </ul>
           <% end %>
     </ul>
+    <p><%= link_to "Back to all companies", companies_path, class:"button" %></p>
   </body>
 </html>
