@@ -16,17 +16,17 @@ describe "When a user visit '/dashboard'" do
   end
 
   it "the user sees a count of jobs by level of interest" do
-    expect(page).to have_content("Level of Interest: 70 (1 job/s)")
+    expect(page).to have_content("Level of Interest Job/s 85")
 
   end
 
   it "the user sees the top 3 companies ranked by avg level of interest" do
     expect(page).to have_content("Top Three Companies Ranked by Average Level of Interest")
-    expect(page).to have_content("Level of Interest: 85")
+    expect(page).to have_content("Average Level of Interest Turing Average Level of Interest: 80.0")
 
   end
 
   it "the user sees a list of location links and job counts" do
-    expect(page).to have_content("San Francisco (1 job/s)")
+    expect(page).to have_content("San Francisco 1")
   end
 end

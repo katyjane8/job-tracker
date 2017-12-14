@@ -5,20 +5,51 @@
     <title>Job Tracker</title>
   </head>
     <body>
+      <ul class="nav">
+        <li><a href="https://giphy.com/search/cat/" target="_blank">Gifs of Cats</a></li>
+        <li><%= link_to "Filter by Interest", "http://localhost:3000/jobs?sort=interest" %></li>
+        <li><%= link_to "Filter by Location", "http://localhost:3000/jobs?sort=location" %></li>
+        <li> <%= link_to "All Companies", companies_path %> </li>
+      </ul>
       <h3>Welcome to Job Tracker!</h3>
+  <div class="parentWrapper">
+    <section class="wrapperOne">
       <h2>Number of Jobs per Interest</h2>
-      <% @jobs.count_of_jobs_by_interest.each do |interest,count| %>
-      <li>Level of Interest: <%= interest %> (<%= count %> job/s)</li>
-      <% end %>
-
-      <h2>Top Three Companies Ranked by Average Level of Interest</h2>
-      <% @company.top_three_companies.each do |company| %></p>
-      <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
-      <% end %>
-
+      <table>
+        <tr class="titleSpace">
+          <th>Level of Interest</th>
+          <th>Job/s</th>
+        </tr>
+        <tr>
+          <% @jobs.count_of_jobs_by_interest.each do |interest,count| %>
+          <td><%= interest %></td>
+          <td><%= count %></td>
+        </tr>
+        <% end %>
+      </table>
+    </section>
+    <section class="wrapperTwo">
       <h2>Number of Jobs per Location</h2>
-      <% @jobs.count_by_city.each do |city,count| %>
-      <li><%= link_to "#{city}", "/jobs?location=#{city}" %> (<%= count %> job/s)</li>
-      <% end %>
+      <table>
+        <tr>
+          <th>Location</th>
+          <th>Job/s</th>
+        </tr>
+        <tr>
+        <% @jobs.count_by_city.each do |city,count| %>
+         <td><%= link_to "#{city}", "/jobs?location=#{city}" %></td>
+          <td><%= count %></td>
+        </tr>
+        <% end %>
+      </table>
+    </section>
+  </div>
+
+      <section class="bottomRank">
+        <h2>Top Three Companies Ranked by Average Level of Interest</h2>
+        <% @company.top_three_companies.each do |company| %></p>
+        <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
+        <% end %>
+      </section>
     </body>
 </html>
