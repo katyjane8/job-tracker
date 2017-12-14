@@ -42,13 +42,14 @@ h3 {
     }
   }
   li a:hover {
-  background-color: #111;
+    background-color: #111;
   }
+  overflow: hidden;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   background-color: #BBC2E2;
+
 }
 .company-container {
   font-weight: bold;
@@ -97,6 +98,8 @@ a:focus {
   border: solid 1px black;
   padding: 10px;
 }
-.titleSpace {
-
+.bottomRank {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 50px;
 }
