@@ -47,10 +47,11 @@
     </section>
   </div>
 
-      <h2>Top Three Companies Ranked by Average Level of Interest</h2>
-      <% @company.top_three_companies.each do |company| %></p>
-      <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
-      <% end %>
-
+      <section class="bottomRank">
+        <h2>Top Three Companies Ranked by Average Level of Interest</h2>
+        <% @company.top_three_companies.each do |company| %></p>
+        <li><%= link_to "#{company.name}", "/companies/#{company.id}/jobs" %> Average Level of Interest: <%= company.avg_interest %></li>
+        <% end %>
+      </section>
     </body>
 </html>
