@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "User sees contacts" do
   scenario "a user sees contacts on job index page" do
-    company = Company.create!(name: "ESPN")
-    contact = Contact.create!(name: "Katy", position: "CTO", email: "me@me.com", company: company)
+    company = create(:company)
+    contact = create(:contact, company: company)
 
     visit company_jobs_path(company)
 

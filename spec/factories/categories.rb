@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    title "Sportsing"
+    sequence(:title) {|n|"Silly walking#{n}"}
   end
 end

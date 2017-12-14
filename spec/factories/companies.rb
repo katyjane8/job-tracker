@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :company do
-    name "ESPN"
+    sequence(:name) {|n|"ESPN#{n}"}
   end
 end
