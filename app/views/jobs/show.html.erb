@@ -4,9 +4,11 @@
 <p>Level of Interest: <%= @job.level_of_interest %></p>
 <p>City: <%= @job.city %></p>
 <p>Company: <%= link_to @job.company.name, company_path(@job.company) %></p>
+<p><%= link_to "Back to all #{@job.company.name} jobs", company_path(@job.company),
+class:"button" %></p>
 
-<%= link_to "Edit", edit_company_job_path(@job.company, @job) %> <br>
-<%= link_to "Delete", company_job_path(@job.company, @job), method: "delete" %>
+<%= link_to "Edit Job", edit_company_job_path(@job.company, @job) %><br />
+<%= link_to "Delete Job", company_job_path(@job.company, @job), method: "delete" %>
 <br>
 <br>
 <h3>Comments (<%= @job.comments.size %>)</h3>
