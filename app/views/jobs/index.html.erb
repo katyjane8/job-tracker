@@ -11,9 +11,13 @@
       at
       <%= job.company.name %></ul>
     <% end %>
+    <p><%= link_to "Create a new job for #{@company.name}", new_company_job_path, class: "button" %></p> <br />
 
     <h3>All Contacts for <%= @company.name %>: </h3>
     <%= render partial: 'contacts/form' %>
     <%= render partial: 'jobs/contact', collection: @company.contacts %>
+
+    <p><%= link_to "Back to all companies", companies_path, class:"button" %></p>
+
   </body>
 </html>
