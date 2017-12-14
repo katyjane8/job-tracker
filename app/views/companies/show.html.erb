@@ -8,7 +8,9 @@
       <h3> All Jobs for <%= @company.name %></h3>
         <% @company.jobs.each do |job| %>
         <ul><%= job.title %></ul>
-        
+
         <% end %>
+        <p><%= link_to "Home", root_path, class: "button" %></p>
+
     </body>
 </html>
