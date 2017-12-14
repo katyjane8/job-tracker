@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "User creates a new contact" do
   scenario "a user can create contact" do
+    
     company = create(:company)
 
     visit company_path(company)
